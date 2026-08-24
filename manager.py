@@ -28,3 +28,18 @@ def find_student(students, name):
             if i["name"] == name:
                 return i
     return None
+
+
+def class_average(students, class_name):
+    with open(students, "r", encoding="utf-8") as f:
+        a = csv.DictReader(f)
+        sum = 0
+        c = 0
+
+        for i in a:
+            if i["class"] == str(class_name):
+                sum += int(i["grade"])
+                c += 1
+        if c == 0:
+            return 0
+        return sum/c
