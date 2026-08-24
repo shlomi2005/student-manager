@@ -13,6 +13,8 @@ def load_students(filename):
         return []
 
 
-b = load_students(
-    r"/Users/shlomo/שבוע חדש הכנה למבחן /student-manager/students.csv")
-print(b)
+def add_student(students, name, grade, class_name):
+    with open(students, "a", encoding="utf-8") as f:
+
+        wrt = csv.writer(f)
+        wrt.writerow([name, grade, class_name])
