@@ -43,3 +43,19 @@ def class_average(students, class_name):
         if c == 0:
             return 0
         return sum/c
+
+
+def top_student(students):
+    with open(students, "r", encoding="utf-8") as f:
+        a = csv.DictReader(f)
+        maxi = 0
+        max_name = ""
+        c = 0
+        for i in a:
+            if int(i["grade"]) > (maxi):
+                max_name = i["name"]
+                maxi = int(i["grade"])
+
+        if maxi == 0:
+            return 0
+        return max_name
